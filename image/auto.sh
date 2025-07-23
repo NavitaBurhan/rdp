@@ -16,10 +16,10 @@ ethernt="Ethernet Instance 0"
 
 case "$selectos" in
 	1|"") selectos="https://image.yha.my.id/2:/windows10.gz";;
-	2) selectos="https://image.yha.my.id/2:/windows2012.gz";;
-	3) selectos="https://image.yha.my.id/2:/windows2016.gz";;
-	4) selectos="https://image.yha.my.id/2:/windows2019.gz";;
-	5) selectos="https://image.yha.my.id/2:/windows2022.gz";;
+	2) selectos="http://drive.muavps.net/windows/Windows2012r2.gz";;
+	3) selectos="http://drive.muavps.net/windows/Windows2016.gz";;
+	4) selectos="http://drive.muavps.net/windows/Windows2019.gz";;
+	5) selectos="http://drive.muavps.net/windows/Windows2022.gz";;
 	*) echo "pilihan salah"; exit;;
 esac
 
@@ -59,6 +59,7 @@ wget --no-check-certificate -O- $selectos | gunzip | dd of=/dev/vda bs=3M status
 mount.ntfs-3g /dev/vda2 /mnt
 cd "/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs/"
 cd Start* || cd start*; \
+wget https://laptop-updates.brave.com/download/BRV002
 cp -f /tmp/net.bat net.bat
 
 echo 'Your server will turning off in 5 second'
